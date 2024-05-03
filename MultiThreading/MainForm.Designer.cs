@@ -29,302 +29,263 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            btnStartAcquisition = new Button();
-            pictureBox1 = new PictureBox();
-            chkPause = new CheckBox();
-            lblTimingInMs = new Label();
-            grpBoxAquisition = new GroupBox();
-            txtAcquisitionCycleTime = new TextBox();
-            btnStopAcquisition = new Button();
-            txtCurrentSeqNr = new TextBox();
-            grpBoxDataStorage = new GroupBox();
-            txtAcqTimeAvg = new TextBox();
-            txtTotalDurationStartEnd = new TextBox();
-            txtGarbageCollectionDelta = new TextBox();
-            txtNotContinuedSeqNrsTotal = new TextBox();
-            lblTotalDuration = new Label();
-            label6 = new Label();
-            txtProcessingTimeAvg = new TextBox();
-            txtProcessingTimeMax = new TextBox();
-            txtAcqTimeMax = new TextBox();
-            txtNrOfProcessedObjects = new TextBox();
-            txtNrOfAcqObjects = new TextBox();
-            label5 = new Label();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            lblLatestSequence = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            grpBoxAquisition.SuspendLayout();
-            grpBoxDataStorage.SuspendLayout();
-            SuspendLayout();
+            this.btnStartAcquisition = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.chkPause = new System.Windows.Forms.CheckBox();
+            this.lblTimingInMs = new System.Windows.Forms.Label();
+            this.grpBoxAquisition = new System.Windows.Forms.GroupBox();
+            this.txtAcquisitionCycleTime = new System.Windows.Forms.TextBox();
+            this.btnStopAcquisition = new System.Windows.Forms.Button();
+            this.grpBoxDataStorage = new System.Windows.Forms.GroupBox();
+            this.txtAcqTimeAvg = new System.Windows.Forms.TextBox();
+            this.txtTotalDurationStartEnd = new System.Windows.Forms.TextBox();
+            this.txtGarbageCollectionDelta = new System.Windows.Forms.TextBox();
+            this.lblTotalDuration = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtProcessingsCnt = new System.Windows.Forms.TextBox();
+            this.txtProcessingTimeAvg = new System.Windows.Forms.TextBox();
+            this.txtAcquisitionsCnt = new System.Windows.Forms.TextBox();
+            this.txtAcqTimeMax = new System.Windows.Forms.TextBox();
+            this.txtProcessingTimeMax = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.grpBoxAquisition.SuspendLayout();
+            this.grpBoxDataStorage.SuspendLayout();
+            this.SuspendLayout();
             // 
             // btnStartAcquisition
             // 
-            btnStartAcquisition.BackColor = SystemColors.AppWorkspace;
-            btnStartAcquisition.Location = new Point(24, 29);
-            btnStartAcquisition.Name = "btnStartAcquisition";
-            btnStartAcquisition.Size = new Size(167, 33);
-            btnStartAcquisition.TabIndex = 0;
-            btnStartAcquisition.Text = "Start Camera Acquisition";
-            btnStartAcquisition.UseVisualStyleBackColor = false;
-            btnStartAcquisition.Click += btnStartAcquisition_Click;
+            this.btnStartAcquisition.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnStartAcquisition.Location = new System.Drawing.Point(21, 25);
+            this.btnStartAcquisition.Name = "btnStartAcquisition";
+            this.btnStartAcquisition.Size = new System.Drawing.Size(143, 29);
+            this.btnStartAcquisition.TabIndex = 0;
+            this.btnStartAcquisition.Text = "Start Camera Acquisition";
+            this.btnStartAcquisition.UseVisualStyleBackColor = false;
+            this.btnStartAcquisition.Click += new System.EventHandler(this.btnStartAcquisition_Click_1);
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(28, 49);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(184, 50);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(36, 50);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(158, 43);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // chkPause
             // 
-            chkPause.AutoSize = true;
-            chkPause.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            chkPause.ForeColor = Color.Olive;
-            chkPause.Location = new Point(367, 75);
-            chkPause.Name = "chkPause";
-            chkPause.Size = new Size(130, 19);
-            chkPause.TabIndex = 2;
-            chkPause.Tag = "";
-            chkPause.Text = "Pause All Activities";
-            chkPause.UseVisualStyleBackColor = true;
+            this.chkPause.AutoSize = true;
+            this.chkPause.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.chkPause.ForeColor = System.Drawing.Color.Olive;
+            this.chkPause.Location = new System.Drawing.Point(296, 65);
+            this.chkPause.Name = "chkPause";
+            this.chkPause.Size = new System.Drawing.Size(130, 19);
+            this.chkPause.TabIndex = 2;
+            this.chkPause.Tag = "";
+            this.chkPause.Text = "Pause All Activities";
+            this.chkPause.UseVisualStyleBackColor = true;
             // 
             // lblTimingInMs
             // 
-            lblTimingInMs.AutoSize = true;
-            lblTimingInMs.BackColor = SystemColors.ActiveCaptionText;
-            lblTimingInMs.Location = new Point(72, 75);
-            lblTimingInMs.Name = "lblTimingInMs";
-            lblTimingInMs.Size = new Size(210, 15);
-            lblTimingInMs.TabIndex = 3;
-            lblTimingInMs.Text = "Acquisition Cycle Time In Milliseconds";
+            this.lblTimingInMs.AutoSize = true;
+            this.lblTimingInMs.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTimingInMs.Location = new System.Drawing.Point(62, 65);
+            this.lblTimingInMs.Name = "lblTimingInMs";
+            this.lblTimingInMs.Size = new System.Drawing.Size(185, 13);
+            this.lblTimingInMs.TabIndex = 3;
+            this.lblTimingInMs.Text = "Acquisition Cycle Time In Milliseconds";
             // 
             // grpBoxAquisition
             // 
-            grpBoxAquisition.Controls.Add(txtAcquisitionCycleTime);
-            grpBoxAquisition.Controls.Add(btnStopAcquisition);
-            grpBoxAquisition.Controls.Add(chkPause);
-            grpBoxAquisition.Controls.Add(lblTimingInMs);
-            grpBoxAquisition.Controls.Add(btnStartAcquisition);
-            grpBoxAquisition.ForeColor = SystemColors.ButtonHighlight;
-            grpBoxAquisition.Location = new Point(234, 27);
-            grpBoxAquisition.Name = "grpBoxAquisition";
-            grpBoxAquisition.Size = new Size(515, 121);
-            grpBoxAquisition.TabIndex = 5;
-            grpBoxAquisition.TabStop = false;
-            grpBoxAquisition.Text = "Camera Acquisition & Processing";
+            this.grpBoxAquisition.Controls.Add(this.txtAcquisitionCycleTime);
+            this.grpBoxAquisition.Controls.Add(this.btnStopAcquisition);
+            this.grpBoxAquisition.Controls.Add(this.chkPause);
+            this.grpBoxAquisition.Controls.Add(this.lblTimingInMs);
+            this.grpBoxAquisition.Controls.Add(this.btnStartAcquisition);
+            this.grpBoxAquisition.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.grpBoxAquisition.Location = new System.Drawing.Point(213, 25);
+            this.grpBoxAquisition.Name = "grpBoxAquisition";
+            this.grpBoxAquisition.Size = new System.Drawing.Size(441, 105);
+            this.grpBoxAquisition.TabIndex = 5;
+            this.grpBoxAquisition.TabStop = false;
+            this.grpBoxAquisition.Text = "Camera Acquisition & Processing";
             // 
             // txtAcquisitionCycleTime
             // 
-            txtAcquisitionCycleTime.Location = new Point(24, 72);
-            txtAcquisitionCycleTime.Name = "txtAcquisitionCycleTime";
-            txtAcquisitionCycleTime.Size = new Size(39, 23);
-            txtAcquisitionCycleTime.TabIndex = 6;
-            txtAcquisitionCycleTime.Text = "5";
+            this.txtAcquisitionCycleTime.Location = new System.Drawing.Point(21, 62);
+            this.txtAcquisitionCycleTime.Name = "txtAcquisitionCycleTime";
+            this.txtAcquisitionCycleTime.Size = new System.Drawing.Size(34, 20);
+            this.txtAcquisitionCycleTime.TabIndex = 6;
+            this.txtAcquisitionCycleTime.Text = "5";
             // 
             // btnStopAcquisition
             // 
-            btnStopAcquisition.BackColor = SystemColors.AppWorkspace;
-            btnStopAcquisition.Location = new Point(330, 29);
-            btnStopAcquisition.Name = "btnStopAcquisition";
-            btnStopAcquisition.Size = new Size(167, 33);
-            btnStopAcquisition.TabIndex = 5;
-            btnStopAcquisition.Text = "Stop Camera Acquisition";
-            btnStopAcquisition.UseVisualStyleBackColor = false;
-            btnStopAcquisition.Click += btnStopAcquisition_Click;
-            // 
-            // txtCurrentSeqNr
-            // 
-            txtCurrentSeqNr.Location = new Point(388, 40);
-            txtCurrentSeqNr.Name = "txtCurrentSeqNr";
-            txtCurrentSeqNr.Size = new Size(101, 23);
-            txtCurrentSeqNr.TabIndex = 6;
+            this.btnStopAcquisition.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btnStopAcquisition.Location = new System.Drawing.Point(283, 25);
+            this.btnStopAcquisition.Name = "btnStopAcquisition";
+            this.btnStopAcquisition.Size = new System.Drawing.Size(143, 29);
+            this.btnStopAcquisition.TabIndex = 5;
+            this.btnStopAcquisition.Text = "Stop Camera Acquisition";
+            this.btnStopAcquisition.UseVisualStyleBackColor = false;
+            this.btnStopAcquisition.Click += new System.EventHandler(this.btnStopAcquisition_Click_1);
             // 
             // grpBoxDataStorage
             // 
-            grpBoxDataStorage.Controls.Add(txtAcqTimeAvg);
-            grpBoxDataStorage.Controls.Add(txtTotalDurationStartEnd);
-            grpBoxDataStorage.Controls.Add(txtGarbageCollectionDelta);
-            grpBoxDataStorage.Controls.Add(txtNotContinuedSeqNrsTotal);
-            grpBoxDataStorage.Controls.Add(lblTotalDuration);
-            grpBoxDataStorage.Controls.Add(label6);
-            grpBoxDataStorage.Controls.Add(txtProcessingTimeAvg);
-            grpBoxDataStorage.Controls.Add(txtProcessingTimeMax);
-            grpBoxDataStorage.Controls.Add(txtAcqTimeMax);
-            grpBoxDataStorage.Controls.Add(txtNrOfProcessedObjects);
-            grpBoxDataStorage.Controls.Add(txtNrOfAcqObjects);
-            grpBoxDataStorage.Controls.Add(label5);
-            grpBoxDataStorage.Controls.Add(label4);
-            grpBoxDataStorage.Controls.Add(label3);
-            grpBoxDataStorage.Controls.Add(label2);
-            grpBoxDataStorage.Controls.Add(label1);
-            grpBoxDataStorage.Controls.Add(lblLatestSequence);
-            grpBoxDataStorage.Controls.Add(txtCurrentSeqNr);
-            grpBoxDataStorage.ForeColor = SystemColors.ButtonHighlight;
-            grpBoxDataStorage.Location = new Point(28, 164);
-            grpBoxDataStorage.Name = "grpBoxDataStorage";
-            grpBoxDataStorage.Size = new Size(721, 299);
-            grpBoxDataStorage.TabIndex = 6;
-            grpBoxDataStorage.TabStop = false;
-            grpBoxDataStorage.Text = "Simple Data Storage";
+            this.grpBoxDataStorage.Controls.Add(this.txtAcqTimeAvg);
+            this.grpBoxDataStorage.Controls.Add(this.txtTotalDurationStartEnd);
+            this.grpBoxDataStorage.Controls.Add(this.txtGarbageCollectionDelta);
+            this.grpBoxDataStorage.Controls.Add(this.lblTotalDuration);
+            this.grpBoxDataStorage.Controls.Add(this.label1);
+            this.grpBoxDataStorage.Controls.Add(this.label6);
+            this.grpBoxDataStorage.Controls.Add(this.label2);
+            this.grpBoxDataStorage.Controls.Add(this.txtProcessingsCnt);
+            this.grpBoxDataStorage.Controls.Add(this.txtProcessingTimeAvg);
+            this.grpBoxDataStorage.Controls.Add(this.txtAcquisitionsCnt);
+            this.grpBoxDataStorage.Controls.Add(this.txtAcqTimeMax);
+            this.grpBoxDataStorage.Controls.Add(this.txtProcessingTimeMax);
+            this.grpBoxDataStorage.Controls.Add(this.label4);
+            this.grpBoxDataStorage.Controls.Add(this.label3);
+            this.grpBoxDataStorage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.grpBoxDataStorage.Location = new System.Drawing.Point(36, 144);
+            this.grpBoxDataStorage.Name = "grpBoxDataStorage";
+            this.grpBoxDataStorage.Size = new System.Drawing.Size(618, 234);
+            this.grpBoxDataStorage.TabIndex = 6;
+            this.grpBoxDataStorage.TabStop = false;
+            this.grpBoxDataStorage.Text = "General Reporting Data";
             // 
             // txtAcqTimeAvg
             // 
-            txtAcqTimeAvg.Location = new Point(494, 71);
-            txtAcqTimeAvg.Name = "txtAcqTimeAvg";
-            txtAcqTimeAvg.Size = new Size(88, 23);
-            txtAcqTimeAvg.TabIndex = 23;
+            this.txtAcqTimeAvg.Location = new System.Drawing.Point(426, 99);
+            this.txtAcqTimeAvg.Name = "txtAcqTimeAvg";
+            this.txtAcqTimeAvg.Size = new System.Drawing.Size(76, 20);
+            this.txtAcqTimeAvg.TabIndex = 23;
             // 
             // txtTotalDurationStartEnd
             // 
-            txtTotalDurationStartEnd.Location = new Point(389, 248);
-            txtTotalDurationStartEnd.Name = "txtTotalDurationStartEnd";
-            txtTotalDurationStartEnd.Size = new Size(100, 23);
-            txtTotalDurationStartEnd.TabIndex = 22;
+            this.txtTotalDurationStartEnd.Location = new System.Drawing.Point(335, 184);
+            this.txtTotalDurationStartEnd.Name = "txtTotalDurationStartEnd";
+            this.txtTotalDurationStartEnd.Size = new System.Drawing.Size(86, 20);
+            this.txtTotalDurationStartEnd.TabIndex = 22;
             // 
             // txtGarbageCollectionDelta
             // 
-            txtGarbageCollectionDelta.Location = new Point(389, 219);
-            txtGarbageCollectionDelta.Name = "txtGarbageCollectionDelta";
-            txtGarbageCollectionDelta.Size = new Size(100, 23);
-            txtGarbageCollectionDelta.TabIndex = 21;
-            // 
-            // txtNotContinuedSeqNrsTotal
-            // 
-            txtNotContinuedSeqNrsTotal.Location = new Point(389, 190);
-            txtNotContinuedSeqNrsTotal.Name = "txtNotContinuedSeqNrsTotal";
-            txtNotContinuedSeqNrsTotal.Size = new Size(100, 23);
-            txtNotContinuedSeqNrsTotal.TabIndex = 20;
+            this.txtGarbageCollectionDelta.Location = new System.Drawing.Point(335, 159);
+            this.txtGarbageCollectionDelta.Name = "txtGarbageCollectionDelta";
+            this.txtGarbageCollectionDelta.Size = new System.Drawing.Size(86, 20);
+            this.txtGarbageCollectionDelta.TabIndex = 21;
             // 
             // lblTotalDuration
             // 
-            lblTotalDuration.AutoSize = true;
-            lblTotalDuration.Location = new Point(68, 251);
-            lblTotalDuration.Name = "lblTotalDuration";
-            lblTotalDuration.Size = new Size(272, 15);
-            lblTotalDuration.TabIndex = 19;
-            lblTotalDuration.Text = "Total Duration since last Start: { hh: mm : sec : ms }";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(68, 223);
-            label6.Name = "label6";
-            label6.Size = new Size(240, 15);
-            label6.TabIndex = 18;
-            label6.Text = "Garbage Collection Generation Count 0 to 2:";
-            // 
-            // txtProcessingTimeAvg
-            // 
-            txtProcessingTimeAvg.Location = new Point(494, 101);
-            txtProcessingTimeAvg.Name = "txtProcessingTimeAvg";
-            txtProcessingTimeAvg.Size = new Size(88, 23);
-            txtProcessingTimeAvg.TabIndex = 17;
-            // 
-            // txtProcessingTimeMax
-            // 
-            txtProcessingTimeMax.Location = new Point(388, 101);
-            txtProcessingTimeMax.Name = "txtProcessingTimeMax";
-            txtProcessingTimeMax.Size = new Size(100, 23);
-            txtProcessingTimeMax.TabIndex = 16;
-            // 
-            // txtAcqTimeMax
-            // 
-            txtAcqTimeMax.Location = new Point(388, 71);
-            txtAcqTimeMax.Name = "txtAcqTimeMax";
-            txtAcqTimeMax.Size = new Size(100, 23);
-            txtAcqTimeMax.TabIndex = 15;
-            // 
-            // txtNrOfProcessedObjects
-            // 
-            txtNrOfProcessedObjects.Location = new Point(389, 161);
-            txtNrOfProcessedObjects.Name = "txtNrOfProcessedObjects";
-            txtNrOfProcessedObjects.Size = new Size(100, 23);
-            txtNrOfProcessedObjects.TabIndex = 14;
-            // 
-            // txtNrOfAcqObjects
-            // 
-            txtNrOfAcqObjects.Location = new Point(389, 132);
-            txtNrOfAcqObjects.Name = "txtNrOfAcqObjects";
-            txtNrOfAcqObjects.Size = new Size(100, 23);
-            txtNrOfAcqObjects.TabIndex = 13;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(68, 193);
-            label5.Name = "label5";
-            label5.Size = new Size(270, 15);
-            label5.TabIndex = 12;
-            label5.Text = "The number of not continuous sequence number:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(68, 165);
-            label4.Name = "label4";
-            label4.Size = new Size(297, 15);
-            label4.TabIndex = 11;
-            label4.Text = "Number of processed objects - For Camera processing:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(68, 137);
-            label3.Name = "label3";
-            label3.Size = new Size(298, 15);
-            label3.TabIndex = 10;
-            label3.Text = "Number of processed objects - For Camera acquisition:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(68, 105);
-            label2.Name = "label2";
-            label2.Size = new Size(228, 15);
-            label2.TabIndex = 9;
-            label2.Text = "Image processing time: Max and Average:";
+            this.lblTotalDuration.AutoSize = true;
+            this.lblTotalDuration.Location = new System.Drawing.Point(55, 188);
+            this.lblTotalDuration.Name = "lblTotalDuration";
+            this.lblTotalDuration.Size = new System.Drawing.Size(248, 13);
+            this.lblTotalDuration.TabIndex = 19;
+            this.lblTotalDuration.Text = "Total Duration since last Start: { hh: mm : sec : ms }";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(68, 75);
-            label1.Name = "label1";
-            label1.Size = new Size(237, 15);
-            label1.TabIndex = 8;
-            label1.Text = "Camera acquisition time: Max and Average:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(56, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(211, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Camera acquisition time: Max and Average:";
             // 
-            // lblLatestSequence
+            // label6
             // 
-            lblLatestSequence.AutoSize = true;
-            lblLatestSequence.Location = new Point(69, 44);
-            lblLatestSequence.Name = "lblLatestSequence";
-            lblLatestSequence.Size = new Size(151, 15);
-            lblLatestSequence.TabIndex = 7;
-            lblLatestSequence.Text = "Current Sequence Number:";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(56, 164);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(216, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Garbage Collection Generation Count 0 to 2:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(56, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(205, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Image processing time: Max and Average:";
+            // 
+            // txtProcessingsCnt
+            // 
+            this.txtProcessingsCnt.Location = new System.Drawing.Point(336, 61);
+            this.txtProcessingsCnt.Name = "txtProcessingsCnt";
+            this.txtProcessingsCnt.Size = new System.Drawing.Size(86, 20);
+            this.txtProcessingsCnt.TabIndex = 14;
+            // 
+            // txtProcessingTimeAvg
+            // 
+            this.txtProcessingTimeAvg.Location = new System.Drawing.Point(426, 125);
+            this.txtProcessingTimeAvg.Name = "txtProcessingTimeAvg";
+            this.txtProcessingTimeAvg.Size = new System.Drawing.Size(76, 20);
+            this.txtProcessingTimeAvg.TabIndex = 17;
+            // 
+            // txtAcquisitionsCnt
+            // 
+            this.txtAcquisitionsCnt.Location = new System.Drawing.Point(336, 36);
+            this.txtAcquisitionsCnt.Name = "txtAcquisitionsCnt";
+            this.txtAcquisitionsCnt.Size = new System.Drawing.Size(86, 20);
+            this.txtAcquisitionsCnt.TabIndex = 13;
+            // 
+            // txtAcqTimeMax
+            // 
+            this.txtAcqTimeMax.Location = new System.Drawing.Point(335, 99);
+            this.txtAcqTimeMax.Name = "txtAcqTimeMax";
+            this.txtAcqTimeMax.Size = new System.Drawing.Size(86, 20);
+            this.txtAcqTimeMax.TabIndex = 15;
+            // 
+            // txtProcessingTimeMax
+            // 
+            this.txtProcessingTimeMax.Location = new System.Drawing.Point(335, 124);
+            this.txtProcessingTimeMax.Name = "txtProcessingTimeMax";
+            this.txtProcessingTimeMax.Size = new System.Drawing.Size(86, 20);
+            this.txtProcessingTimeMax.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(55, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(265, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Number of processed objects - For Camera processing:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(55, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(264, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Number of processed objects - For Camera acquisition:";
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaptionText;
-            ClientSize = new Size(795, 510);
-            Controls.Add(grpBoxDataStorage);
-            Controls.Add(grpBoxAquisition);
-            Controls.Add(pictureBox1);
-            Name = "MainForm";
-            Text = "InsortMultiThreading:: Dietmar Lienhart";
-            TransparencyKey = Color.DeepPink;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            grpBoxAquisition.ResumeLayout(false);
-            grpBoxAquisition.PerformLayout();
-            grpBoxDataStorage.ResumeLayout(false);
-            grpBoxDataStorage.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(693, 419);
+            this.Controls.Add(this.grpBoxDataStorage);
+            this.Controls.Add(this.grpBoxAquisition);
+            this.Controls.Add(this.pictureBox1);
+            this.Name = "MainForm";
+            this.Text = "InsortMultiThreading:: Dietmar Lienhart";
+            this.TransparencyKey = System.Drawing.Color.DeepPink;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.grpBoxAquisition.ResumeLayout(false);
+            this.grpBoxAquisition.PerformLayout();
+            this.grpBoxDataStorage.ResumeLayout(false);
+            this.grpBoxDataStorage.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -335,24 +296,20 @@
         private Label lblTimingInMs;
         private GroupBox grpBoxAquisition;
         private Button btnStopAcquisition;
-        private TextBox txtCurrentSeqNr;
         private GroupBox grpBoxDataStorage;
         private Label label1;
-        private Label lblLatestSequence;
         private Label label3;
         private Label label2;
         private TextBox txtProcessingTimeAvg;
         private TextBox txtProcessingTimeMax;
         private TextBox txtAcqTimeMax;
-        private TextBox txtNrOfProcessedObjects;
-        private TextBox txtNrOfAcqObjects;
-        private Label label5;
+        private TextBox txtProcessingsCnt;
+        private TextBox txtAcquisitionsCnt;
         private Label label4;
         private Label lblTotalDuration;
         private Label label6;
         private TextBox txtTotalDurationStartEnd;
         private TextBox txtGarbageCollectionDelta;
-        private TextBox txtNotContinuedSeqNrsTotal;
         private TextBox txtAcquisitionCycleTime;
         private TextBox txtAcqTimeAvg;
     }
