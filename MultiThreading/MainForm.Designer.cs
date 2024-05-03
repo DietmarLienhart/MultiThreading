@@ -42,7 +42,7 @@
             txtTotalDurationStartEnd = new TextBox();
             txtGarbageCollectionDelta = new TextBox();
             txtNotContinuedSeqNrsTotal = new TextBox();
-            label7 = new Label();
+            lblTotalDuration = new Label();
             label6 = new Label();
             txtProcessingTimeAvg = new TextBox();
             txtProcessingTimeMax = new TextBox();
@@ -102,7 +102,6 @@
             lblTimingInMs.Size = new Size(210, 15);
             lblTimingInMs.TabIndex = 3;
             lblTimingInMs.Text = "Acquisition Cycle Time In Milliseconds";
-            lblTimingInMs.Click += lblTimingInMs_Click;
             // 
             // grpBoxAquisition
             // 
@@ -126,7 +125,6 @@
             txtAcquisitionCycleTime.Size = new Size(39, 23);
             txtAcquisitionCycleTime.TabIndex = 6;
             txtAcquisitionCycleTime.Text = "5";
-            txtAcquisitionCycleTime.TextChanged += txtAcquisitionCycleTime_TextChanged;
             // 
             // btnStopAcquisition
             // 
@@ -152,7 +150,7 @@
             grpBoxDataStorage.Controls.Add(txtTotalDurationStartEnd);
             grpBoxDataStorage.Controls.Add(txtGarbageCollectionDelta);
             grpBoxDataStorage.Controls.Add(txtNotContinuedSeqNrsTotal);
-            grpBoxDataStorage.Controls.Add(label7);
+            grpBoxDataStorage.Controls.Add(lblTotalDuration);
             grpBoxDataStorage.Controls.Add(label6);
             grpBoxDataStorage.Controls.Add(txtProcessingTimeAvg);
             grpBoxDataStorage.Controls.Add(txtProcessingTimeMax);
@@ -202,14 +200,14 @@
             txtNotContinuedSeqNrsTotal.Size = new Size(100, 23);
             txtNotContinuedSeqNrsTotal.TabIndex = 20;
             // 
-            // label7
+            // lblTotalDuration
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(68, 251);
-            label7.Name = "label7";
-            label7.Size = new Size(162, 15);
-            label7.TabIndex = 19;
-            label7.Text = "Total Duration since last Start:";
+            lblTotalDuration.AutoSize = true;
+            lblTotalDuration.Location = new Point(68, 251);
+            lblTotalDuration.Name = "lblTotalDuration";
+            lblTotalDuration.Size = new Size(272, 15);
+            lblTotalDuration.TabIndex = 19;
+            lblTotalDuration.Text = "Total Duration since last Start: { hh: mm : sec : ms }";
             // 
             // label6
             // 
@@ -350,7 +348,7 @@
         private TextBox txtNrOfAcqObjects;
         private Label label5;
         private Label label4;
-        private Label label7;
+        private Label lblTotalDuration;
         private Label label6;
         private TextBox txtTotalDurationStartEnd;
         private TextBox txtGarbageCollectionDelta;
