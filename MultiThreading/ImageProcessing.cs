@@ -31,7 +31,7 @@ namespace MultiThreading
             // sleeping "block" -> to simulate processing time fluctuations
             double randomSleep = (double) new Random().Next(20, 50) / 10; // between 2 and 5
             
-            Thread.Sleep(Convert.ToInt32(randomSleep) * 100); // TODO remove 1000 -> slowed down for debugging console window!
+            Thread.Sleep(Convert.ToInt32(randomSleep) * 100); // TODO remove 1000 -> slowed down for debugging console window and demo purpose only!
 
             // print info that image was processed
             Console.WriteLine("IMAGE PROCESSING PERFORMED: " + SequenceNumber + " with a delay of: " + randomSleep.ToString());

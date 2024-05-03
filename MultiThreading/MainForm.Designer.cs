@@ -39,10 +39,8 @@
             this.grpBoxDataStorage = new System.Windows.Forms.GroupBox();
             this.txtAcqTimeAvg = new System.Windows.Forms.TextBox();
             this.txtTotalDurationStartEnd = new System.Windows.Forms.TextBox();
-            this.txtGarbageCollectionDelta = new System.Windows.Forms.TextBox();
             this.lblTotalDuration = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtProcessingsCnt = new System.Windows.Forms.TextBox();
             this.txtProcessingTimeAvg = new System.Windows.Forms.TextBox();
@@ -70,7 +68,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(36, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(35, 53);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(158, 43);
             this.pictureBox1.TabIndex = 1;
@@ -107,7 +105,7 @@
             this.grpBoxAquisition.Controls.Add(this.lblTimingInMs);
             this.grpBoxAquisition.Controls.Add(this.btnStartAcquisition);
             this.grpBoxAquisition.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.grpBoxAquisition.Location = new System.Drawing.Point(213, 25);
+            this.grpBoxAquisition.Location = new System.Drawing.Point(212, 28);
             this.grpBoxAquisition.Name = "grpBoxAquisition";
             this.grpBoxAquisition.Size = new System.Drawing.Size(441, 105);
             this.grpBoxAquisition.TabIndex = 5;
@@ -137,10 +135,8 @@
             // 
             this.grpBoxDataStorage.Controls.Add(this.txtAcqTimeAvg);
             this.grpBoxDataStorage.Controls.Add(this.txtTotalDurationStartEnd);
-            this.grpBoxDataStorage.Controls.Add(this.txtGarbageCollectionDelta);
             this.grpBoxDataStorage.Controls.Add(this.lblTotalDuration);
             this.grpBoxDataStorage.Controls.Add(this.label1);
-            this.grpBoxDataStorage.Controls.Add(this.label6);
             this.grpBoxDataStorage.Controls.Add(this.label2);
             this.grpBoxDataStorage.Controls.Add(this.txtProcessingsCnt);
             this.grpBoxDataStorage.Controls.Add(this.txtProcessingTimeAvg);
@@ -150,9 +146,9 @@
             this.grpBoxDataStorage.Controls.Add(this.label4);
             this.grpBoxDataStorage.Controls.Add(this.label3);
             this.grpBoxDataStorage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.grpBoxDataStorage.Location = new System.Drawing.Point(36, 144);
+            this.grpBoxDataStorage.Location = new System.Drawing.Point(35, 147);
             this.grpBoxDataStorage.Name = "grpBoxDataStorage";
-            this.grpBoxDataStorage.Size = new System.Drawing.Size(618, 234);
+            this.grpBoxDataStorage.Size = new System.Drawing.Size(618, 206);
             this.grpBoxDataStorage.TabIndex = 6;
             this.grpBoxDataStorage.TabStop = false;
             this.grpBoxDataStorage.Text = "General Reporting Data";
@@ -166,22 +162,15 @@
             // 
             // txtTotalDurationStartEnd
             // 
-            this.txtTotalDurationStartEnd.Location = new System.Drawing.Point(335, 184);
+            this.txtTotalDurationStartEnd.Location = new System.Drawing.Point(335, 162);
             this.txtTotalDurationStartEnd.Name = "txtTotalDurationStartEnd";
             this.txtTotalDurationStartEnd.Size = new System.Drawing.Size(86, 20);
             this.txtTotalDurationStartEnd.TabIndex = 22;
             // 
-            // txtGarbageCollectionDelta
-            // 
-            this.txtGarbageCollectionDelta.Location = new System.Drawing.Point(335, 159);
-            this.txtGarbageCollectionDelta.Name = "txtGarbageCollectionDelta";
-            this.txtGarbageCollectionDelta.Size = new System.Drawing.Size(86, 20);
-            this.txtGarbageCollectionDelta.TabIndex = 21;
-            // 
             // lblTotalDuration
             // 
             this.lblTotalDuration.AutoSize = true;
-            this.lblTotalDuration.Location = new System.Drawing.Point(55, 188);
+            this.lblTotalDuration.Location = new System.Drawing.Point(55, 166);
             this.lblTotalDuration.Name = "lblTotalDuration";
             this.lblTotalDuration.Size = new System.Drawing.Size(248, 13);
             this.lblTotalDuration.TabIndex = 19;
@@ -192,27 +181,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(56, 102);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 13);
+            this.label1.Size = new System.Drawing.Size(238, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Camera acquisition time: Max and Average:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(56, 164);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(216, 13);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Garbage Collection Generation Count 0 to 2:";
+            this.label1.Text = "Camera acquisition time: Max and Average in ms:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(56, 128);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 13);
+            this.label2.Size = new System.Drawing.Size(232, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Image processing time: Max and Average:";
+            this.label2.Text = "Image processing time: Max and Average in ms:";
             // 
             // txtProcessingsCnt
             // 
@@ -272,7 +252,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(693, 419);
+            this.CausesValidation = false;
+            this.ClientSize = new System.Drawing.Size(709, 401);
             this.Controls.Add(this.grpBoxDataStorage);
             this.Controls.Add(this.grpBoxAquisition);
             this.Controls.Add(this.pictureBox1);
@@ -307,9 +288,7 @@
         private TextBox txtAcquisitionsCnt;
         private Label label4;
         private Label lblTotalDuration;
-        private Label label6;
         private TextBox txtTotalDurationStartEnd;
-        private TextBox txtGarbageCollectionDelta;
         private TextBox txtAcquisitionCycleTime;
         private TextBox txtAcqTimeAvg;
     }

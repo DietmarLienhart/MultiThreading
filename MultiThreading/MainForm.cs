@@ -91,7 +91,7 @@ namespace MultiThreading
                             _images.TryAdd(currentSequenceNr, ca);
                             acquisitionCount++;
                             calcAcquisitionTimeMax(ca.AcquisitionTime);
-                            calcAcquisitionTimeMax(ca.AcquisitionTime);
+                            calcAcquisitionTimeAvg(ca.AcquisitionTime);
                             ca = null;
                         }
                     } else
@@ -183,14 +183,12 @@ namespace MultiThreading
  
             txtAcquisitionsCnt.Text = "";
             txtProcessingsCnt.Text = "";
-            txtProcessingSkippedCnt.Text = "";
 
             txtAcqTimeMax.Text = "";
             txtAcqTimeAvg.Text = "";
             txtProcessingTimeMax.Text = "";
             txtProcessingTimeAvg.Text = "";
 
-            txtGarbageCollectionDelta.Text = "";
             txtTotalDurationStartEnd.Text = "";
 
             grpBoxDataStorage.Refresh();
@@ -207,7 +205,6 @@ namespace MultiThreading
 
             txtAcquisitionsCnt.Text = acquisitionCount.ToString();
             txtProcessingsCnt.Text = processingCount.ToString();
-            txtProcessingSkippedCnt.Text = processingSkippedCount.ToString();
 
             grpBoxDataStorage.Refresh();
         }

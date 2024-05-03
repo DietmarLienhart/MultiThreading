@@ -42,7 +42,7 @@ namespace MultiThreading
             // adding extra delay as well, as just an empty byte array is created (faster than processing tasks)
             double randomSleep = (double) new Random().Next(10, 20) / 10; // between 1 and 2
             
-            Thread.Sleep(Convert.ToInt32(randomSleep) * 100); // TODO remove 100 -> slowed down for debugging console window!
+            Thread.Sleep(Convert.ToInt32(randomSleep) * 100); // TODO remove 100 -> slowed down for debugging console window and demo purpose only!
 
             Console.WriteLine("ACQUISITION PERFORMED: " + SequenceNumber + " with a delay of: " + randomSleep.ToString());
 
