@@ -63,7 +63,7 @@
             this.btnStartAcquisition.TabIndex = 0;
             this.btnStartAcquisition.Text = "Start Camera Acquisition";
             this.btnStartAcquisition.UseVisualStyleBackColor = false;
-            this.btnStartAcquisition.Click += new System.EventHandler(this.btnStartAcquisition_Click_1);
+            this.btnStartAcquisition.Click += new System.EventHandler(this.btnStartAcquisition_Click);
             // 
             // pictureBox1
             // 
@@ -86,6 +86,7 @@
             this.chkPause.Tag = "";
             this.chkPause.Text = "Pause All Activities";
             this.chkPause.UseVisualStyleBackColor = true;
+            this.chkPause.CheckedChanged += new System.EventHandler(this.chkPause_CheckedChanged);
             // 
             // lblTimingInMs
             // 
@@ -129,7 +130,7 @@
             this.btnStopAcquisition.TabIndex = 5;
             this.btnStopAcquisition.Text = "Stop Camera Acquisition";
             this.btnStopAcquisition.UseVisualStyleBackColor = false;
-            this.btnStopAcquisition.Click += new System.EventHandler(this.btnStopAcquisition_Click_1);
+            this.btnStopAcquisition.Click += new System.EventHandler(this.btnStopAcquisition_Click);
             // 
             // grpBoxDataStorage
             // 

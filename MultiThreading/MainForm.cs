@@ -10,8 +10,17 @@ namespace MultiThreading
 {
     public partial class MainForm : Form
     {
+        // Flag to track acquisition state
         private static Boolean isAcquisitionActive = false;
+
+        // thread helpers
+        private ManualResetEvent manualResetEvent = new ManualResetEvent(false); 
+
+        // thread-safe variable access
         private static readonly object _locker = new object();
+        
+        // for time tracking overall processing time (start and stop buttons pressed)
+        Stopwatch stopWatch = new Stopwatch(); 
 
         // set of variables for summary reporting
         protected static ConcurrentDictionary<int, CameraAcquisition> _images = new ConcurrentDictionary<int, CameraAcquisition>();
@@ -24,51 +33,47 @@ namespace MultiThreading
         protected static long acqTimeAvg = 0;
         protected static long processTimeMax = 0;
         protected static long processTimeAvg = 0;
-        
-
-        // stop watch for time tracking overall processing time (start and stop buttons pressed)
-        Stopwatch stopWatch = new Stopwatch();
 
         public MainForm()
         {
-            // create form components
             InitializeComponent();
         }
 
         /*
-         * Create a GUI where you can start and stop a “Camera Acquisition” task/thread. 
-         * This task/thread should send every exact time (e.g. 5ms) a byte array (=image data). 
-         * There should be a check box, to pause the camera acquisition. When paused, no data is sent,
-         * and the overall process CPU time should be idle. */
-        private void btnStartAcquisition_Click_1(object sender, EventArgs e)
+         * Starts a “Camera Acquisition” task/thread, as well as a processing thread in parallel.
+         * *) First task should "send" every exact time (e.g. 5ms) a byte array. Empty byte arrays are getting created with a dummy delay. 
+         * *) Second task starts to process in parallel any byte array which is getting put into a buffer.
+         */
+        private void btnStartAcquisition_Click(object sender, EventArgs e)
         {
-            // reset data at first
-            resetReportData();
-
-            // clear GUI fields when starting new threads
-            clearGUIFields();
 
             // start threads with a beginning sleep
             if (!isAcquisitionActive)
             {
-                // start stop watch for time tracking
+                // reset data at first
+                resetReportData();
+
+                // clear GUI fields when starting new threads
+                clearGUIFields();
+
+                // start stop watch for overall time tracking
                 stopWatch.Start();
 
                 // activate at first acquisition mode
                 isAcquisitionActive = true;
 
                 // execute both tasks in parallel
-                Task.Run(() => DoSomeImageWork());
-                Task.Run(() => DoSomeImageProcessing());
+                Task.Run(() => DoSomeImageWorkCallback());
+                Task.Run(() => DoSomeImageProcessingCallback());
 
                 Console.WriteLine("Acquisitioning and Processing: Both Tasks started.");
-            } else
-            {
+
+            } else {
                 MessageBox.Show("Acquisitioning and Processing already in progress!");
             }
         }
 
-        public async Task DoSomeImageWork()
+        public async Task DoSomeImageWorkCallback()
         {
             while (isAcquisitionActive)
             {
@@ -94,8 +99,7 @@ namespace MultiThreading
                             calcAcquisitionTimeAvg(ca.AcquisitionTime);
                             ca = null;
                         }
-                    } else
-                    {
+                    } else {
                         // loop in idle to keep cpu load down
                         Thread.Sleep(500);
                     }
@@ -103,8 +107,11 @@ namespace MultiThreading
             }
         }
 
-
-        public async Task DoSomeImageProcessing()
+        /// <summary>
+        /// Processes each image dummy image
+        /// </summary>
+        /// <returns></returns>
+        public async Task DoSomeImageProcessingCallback()
         {
             while (true)
             {
@@ -121,15 +128,15 @@ namespace MultiThreading
                         // dummy task doing nothing but o wait (longer than the image acquisition is taking)
                         ip.runProcessing();
                     
+                    // thread-safe access to the images buffer
                         lock (_locker)
                         {
                             _images.TryRemove(ip.SequenceNumber, out _);
                             processingCount++;
                             calcProcessingTimeMax(ip.ProcessingTime);
                             calcProcessingTimeAvg(ip.ProcessingTime);
-                    }
-                    } else
-                    {
+                        }
+                    } else {
                         // MessageBox.Show("QUEUE IS CURRENTLY EMPTY - NO PROCESSING!");
                         Thread.Sleep(50);
                     }
@@ -139,7 +146,10 @@ namespace MultiThreading
             }
         }
 
-         private void btnStopAcquisition_Click_1(object sender, EventArgs e) 
+        /// <summary>
+        /// stop camera acquisition and generate a summary report
+        /// </summary>
+         private void btnStopAcquisition_Click(object sender, EventArgs e) 
          {
 
             // reset process handling variables
@@ -164,6 +174,9 @@ namespace MultiThreading
             Console.WriteLine("STOPPED IMAGE ACQUISITION -> ALL VALUES RESET!");
          }
 
+        /// <summary>
+        /// Reset all reporting variables
+        /// </summary>
         private void resetReportData()
         {
             // reporting data
@@ -178,22 +191,24 @@ namespace MultiThreading
             processTimeAvg = 0;
         }
 
+        /// <summary>
+        /// Clear all UI fields
+        /// </summary>
         private void clearGUIFields()
         {
- 
             txtAcquisitionsCnt.Text = "";
             txtProcessingsCnt.Text = "";
-
             txtAcqTimeMax.Text = "";
             txtAcqTimeAvg.Text = "";
             txtProcessingTimeMax.Text = "";
             txtProcessingTimeAvg.Text = "";
-
             txtTotalDurationStartEnd.Text = "";
-
             grpBoxDataStorage.Refresh();
         }
-
+        
+        /// <summary>
+        /// Generate an end report within UI
+        /// </summary>
         private void generateGeneralReport()
         {
 
@@ -202,13 +217,14 @@ namespace MultiThreading
             txtAcqTimeAvg.Text = acqTimeAvg.ToString();
             txtProcessingTimeMax.Text = processTimeMax.ToString();
             txtProcessingTimeAvg.Text = processTimeAvg.ToString();
-
             txtAcquisitionsCnt.Text = acquisitionCount.ToString();
             txtProcessingsCnt.Text = processingCount.ToString();
-
             grpBoxDataStorage.Refresh();
         }
 
+        /// <summary>
+        /// Calculate the maximum time taken for acquisition
+        /// </summary>
         private void calcAcquisitionTimeMax(long currentAcqTime)
         {
             lock(_locker)
@@ -220,6 +236,9 @@ namespace MultiThreading
             }
         }
 
+        /// <summary>
+        /// Calculate the average acquisition time
+        /// </summary>
         private void calcAcquisitionTimeAvg(long currentAcqTime)
         {
             lock (_locker)
@@ -228,6 +247,9 @@ namespace MultiThreading
             }
         }
 
+        /// <summary>
+        /// Calculate the maximum time taken for image processing
+        /// </summary>
         private void calcProcessingTimeMax(long currentProcessTime)
         {
             lock (_locker)
@@ -237,6 +259,9 @@ namespace MultiThreading
             }
         }
 
+        /// <summary>
+        /// Calculate the average image processing time
+        /// </summary>
         private void calcProcessingTimeAvg(long currentProcessTime)
         {
             lock (_locker)
@@ -245,6 +270,9 @@ namespace MultiThreading
             }
         }
 
+        /// <summary>
+        /// Calculate whole execution time from start till end buttons are pressed
+        /// </summary>
         private void calcOverallDuration()
         {
             // stop overall processing time and update field
@@ -260,6 +288,20 @@ namespace MultiThreading
 
             overallDurationTime = elapsedTime;
 
+        }
+
+        /// <summary>
+        /// pause a thread via ManualResetEvent
+        /// </summary>
+        private void chkPause_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkPause.Checked)
+            {
+                manualResetEvent.Reset(); // resume tasks
+            } else
+            {
+                manualResetEvent.Set(); // pause tasks
+            } 
         }
 
     }
