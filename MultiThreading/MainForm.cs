@@ -13,7 +13,7 @@ namespace MultiThreading
         // Flag to track acquisition state
         private static Boolean isAcquisitionActive = false;
 
-        // thread helpers
+        // thread helpersmanualResetEvent
         private ManualResetEvent manualResetEvent = new ManualResetEvent(false); 
 
         // thread-safe variable access
@@ -63,7 +63,7 @@ namespace MultiThreading
                 isAcquisitionActive = true;
 
                 // execute both tasks in parallel
-                Task.Run(() => DoSomeImageWorkCallback());
+                Task.Run(() => DoSomeImageAcquisitionWorkCallback());
                 Task.Run(() => DoSomeImageProcessingCallback());
 
                 Console.WriteLine("Acquisitioning and Processing: Both Tasks started.");
@@ -73,7 +73,7 @@ namespace MultiThreading
             }
         }
 
-        public async Task DoSomeImageWorkCallback()
+        public async Task DoSomeImageAcquisitionWorkCallback()
         {
             while (isAcquisitionActive)
             {
@@ -120,26 +120,26 @@ namespace MultiThreading
                 ImageProcessing ip = null;
 
                 // get latest locked sequence number to process
-                    if(_images.Count > 0)
-                    {
-                        latestCameraAcquisition = _images.Last().Value;
-                        ip = new ImageProcessing(latestCameraAcquisition.SequenceNumber);
+                if(_images.Count > 0 && !chkPause.Checked)
+                {
+                    latestCameraAcquisition = _images.Last().Value;
+                    ip = new ImageProcessing(latestCameraAcquisition.SequenceNumber);
 
-                        // dummy task doing nothing but o wait (longer than the image acquisition is taking)
-                        ip.runProcessing();
+                    // dummy task doing nothing but o wait (longer than the image acquisition is taking)
+                    ip.runProcessing();
                     
                     // thread-safe access to the images buffer
-                        lock (_locker)
-                        {
-                            _images.TryRemove(ip.SequenceNumber, out _);
-                            processingCount++;
-                            calcProcessingTimeMax(ip.ProcessingTime);
-                            calcProcessingTimeAvg(ip.ProcessingTime);
-                        }
-                    } else {
-                        // MessageBox.Show("QUEUE IS CURRENTLY EMPTY - NO PROCESSING!");
-                        Thread.Sleep(50);
+                    lock (_locker)
+                    {
+                        _images.TryRemove(ip.SequenceNumber, out _);
+                        processingCount++;
+                        calcProcessingTimeMax(ip.ProcessingTime);
+                        calcProcessingTimeAvg(ip.ProcessingTime);
                     }
+                } else {
+                    // MessageBox.Show("QUEUE IS CURRENTLY EMPTY - NO PROCESSING!");
+                    Thread.Sleep(50);
+                }
 
                 // destroy object wether processed or not
                 ip = null;

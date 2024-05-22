@@ -74,11 +74,17 @@ namespace MultiThreading
             byte[] emptyByteArray = new byte[4 + (1024 * 1024)];
             emptyByteArray = createByteArrayWithIncrementedInteger(SequenceNumber, arraySizeInBytes);
 
+            // TODO remove 100-200 ms sleep -> just slowing down here for debugging console window and demo purpose only!
+            int randomSleep = new Random().Next(1, 2);
+            Thread.Sleep(randomSleep * 100);
+
+            Console.WriteLine("ACQUISITION PERFORMED: " + SequenceNumber + " with a delay of: " + randomSleep.ToString());
+
             return emptyByteArray;
         }
 
         /**
-         * Create a dummy 1mb byte array 
+         * Create a dummy 1mb byte array
          * */
         static byte[] createByteArrayWithIncrementedInteger(int value, int arraySize)
         {
